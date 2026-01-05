@@ -1,9 +1,11 @@
 <?php
-$host = getenv('NEON_HOST');   // Host de Neon
-$db   = getenv('NEON_DB');     // Nombre de la DB
-$user = getenv('NEON_USER');   // Usuario
-$pass = getenv('NEON_PASS');   // Contraseña
-$port = getenv('NEON_PORT') ?: 5432;
+$host = getenv('PGHOST');   // Host de Neon
+$db   = getenv('PGDATABASE');     // Nombre de la DB
+$user = getenv('PGUSER');   // Usuario
+$pass = getenv('PGPASSWORD');   // Contraseña
+
+#$port = getenv('NEON_PORT') ?: 5432;
+
 
 $dsn = "pgsql:host=$host;port=$port;dbname=$db";
 
