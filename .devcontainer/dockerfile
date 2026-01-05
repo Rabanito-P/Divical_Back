@@ -1,0 +1,40 @@
+FROM php:8.2-fpm
+
+# ─────────────────────────────
+# 1. Directorio de trabajo
+# ─────────────────────────────
+WORKDIR /var/www
+
+# ─────────────────────────────
+# 2. Dependencias del sistema
+# ─────────────────────────────
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    unzip \
+    libpq-dev \
+    libzip-dev \
+    zip \
+    && docker-php-ext-install \
+    pdo \
+    pdo_pgsql \
+    pgsql \
+    zip \
+    && rm -rf /var/lib/apt/lists/*
+
+# ─────────────────────────────
+# 3. Composer
+# ─────────────────────────────
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# ─────────────────────────────
+# 4. Permisos (Laravel)
+# ─────────────────────────────
+RUN chown -R www-data:www-data /var/www
+
+# ─────────────────────────────
+# 5. Exponer PHP-FPM
+# ─────────────────────────────
+EXPOSE 9000
+
+CMD ["php-fpm"]
