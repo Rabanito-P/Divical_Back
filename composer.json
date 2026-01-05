@@ -1,0 +1,12 @@
+{
+    "name": "divcal/backend_div",
+    "description": "Backend para la subida de archivos",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Divcal\\BackendDiv\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
