@@ -1,5 +1,18 @@
 # Divical_Back
 Backend para la subida de archivos
+
+Ejecuta estos comandos uno por uno en tu carpeta C:\Users\angel\Desktop\php:
+Bashcomposer require slim/slim -W
+(Instala la latest 4.15.1 automáticamente, compatible con tu PHP 8.2)
+Bashcomposer require slim/psr7 -W
+(Instala la latest 1.8.0, compatible)
+Bashcomposer require vlucas/phpdotenv -W
+(Instala la latest 5.6.x)
+Bashcomposer require dmhendricks/b2-sdk-php -W
+
+
+
+
 Solución rápida y definitiva (para Windows)
 
 Descarga el archivo de certificados CA:
