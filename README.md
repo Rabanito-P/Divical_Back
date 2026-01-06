@@ -55,3 +55,21 @@ Ejecuta en terminal:textphp -m | findstr pgsql
 Debe aparecer:textpdo_pgsql
 pgsql
 Si no aparece, revisa que editaste el php.ini correcto (el que muestra php --ini).
+
+
+
+PASO PARA SSL BACKBLAZE
+Descargar el archivo de certificados (cacert.pem)
+Ve a este sitio oficial de cURL:
+ https://curl.se/ca/cacert.pem
+Descarga el archivo cacert.pem
+Guárdalo, por ejemplo, en:
+C:\php\extras\ssl\cacert.pem
+(o cualquier ruta que prefieras, pero recuerda dónde)
+2️ Configurar PHP para usar ese certificado
+Abre tu archivo php.ini
+(Puedes encontrarlo con:)
+php --ini
+Edita el php.ini y busca estas líneas (si no existen, agrégalas):
+curl.cainfo = "C:\php\extras\ssl\cacert.pem"
+openssl.cafile = "C:\php\extras\ssl\cacert.pem"
